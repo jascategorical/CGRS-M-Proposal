@@ -3,6 +3,8 @@
 \usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage{amsthm}
+\usepackage[most]{tcolorbox}
+\usepackage[margin=0.75in]{geometry}
 
 \title{Ranks of Cohen-Macaulay Modules}
 \author{Jaspreet Singh Sidhu}
@@ -18,6 +20,119 @@ Earlier, in \cite{Dyckerhoff}, Dyckerhoff showed that starting with local regula
 A more modest objective is that there is an $A_{\infty}$ algebra structure on the algebra $A=\operatorname{End}(k^{stab})^{op}$, which as explained in \cite{Dyckerhoff}, allows one to see that $MF^{\infty}(f)$ is quasiequivalent to the derived category of modules over $H^{*}(A)$. However, the $A_{\infty}$ structure is tedious to compute in practice, as in \cite{Dyckerhoff}. We will try to extend the known computations from the case of quadratic forms in $k[x_{1},x_{2},\dots,x_{n}]$ where $\operatorname{char}(k)\ne 2$ to hypersurfaces in general.\par
 
 \newpage
+
+\begin{tcolorbox}[
+  colback=yellow!12,
+  colframe=yellow!50!black,
+  boxrule=0.6pt,
+  arc=1mm,
+  left=2mm,
+  right=2mm,
+  top=1.5mm,
+  bottom=1.5mm,
+  boxsep=0pt,
+  before skip=0pt,
+  after skip=0pt
+]
+\begin{center}
+\textbf{Suggested one-page rewrite: Rank Conjectures through Local and
+Graded $A_{\infty}$-Models}
+\end{center}
+
+\textbf{Background and objective.}
+Let $k$ be an algebraically closed field of characteristic zero,
+$P=k[x_{0},\ldots,x_{n}]$, and $f\in P$ a homogeneous polynomial of degree
+$d\geq2$ such that $X=V_{+}(f)\subset\mathbb P^{n}$ is a smooth projective
+hypersurface. Its affine cone has an isolated singularity at the vertex
+$\mathfrak m$. Set $Q=\widehat{P_{\mathfrak m}}$, $S=Q/(f)$, and
+$e=\lfloor n/2\rfloor$. The Buchweitz--Greuel--Schreyer conjecture predicts
+that every nonfree maximal Cohen--Macaulay (MCM) $S$-module has rank at least
+$2^{e-1}$ \cite{BGS}; its Brown--Walker weakening predicts that every
+nontrivial matrix factorization $F=(F^{0}\rightleftarrows F^{1})$ over $Q$
+satisfies $\operatorname{rank}_{Q}F^{0}\geq2^{e}$ \cite{BrownWalker}.
+
+There is also a genuinely graded, projective problem. A rank-$r$ Ulrich bundle
+$\mathcal E$ on $X$ corresponds to a graded MCM $P/(f)$-module with a linear
+$P$-free presentation
+\[
+ 0\longrightarrow P(-1)^{rd}\xrightarrow{\ \phi\ }P^{rd}
+ \longrightarrow M\longrightarrow0;
+\]
+$\phi$ and a degree-$(d-1)$ companion form a graded matrix factorization of
+$f$ \cite{Beauville}. Thus its matrix size is $rd$, whereas the bundle rank is
+$r$. The Ulrich complexity $\operatorname{uc}(X)$ is the least such $r$, and
+the codimension conjecture specializes in this smooth case to
+$\operatorname{uc}(X)\geq2^{\lceil(n+1)/2\rceil-2}=2^{e-1}$
+\cite{BES}. My objective is to formulate these three lower bounds in suitable
+$A_{\infty}$ settings while retaining the distinct rank information that each
+one measures.
+
+\textbf{Two $A_{\infty}$ settings.}
+For the local conjectures, Dyckerhoff showed that
+$K=k^{\mathrm{stab}}$ compactly generates $\operatorname{MF}^{\infty}(f)$
+over $Q$ \cite{Dyckerhoff}. The dg algebra
+$E_{\mathrm{loc}}=\operatorname{End}(K)^{\mathrm{op}}$ therefore gives a
+Morita model, and transfer to $H^{*}(E_{\mathrm{loc}})$ gives a minimal
+$A_{\infty}$-algebra. After replacing a finite-rank factorization $F$ by its
+minimal representative, it determines a perfect $A_{\infty}$-module $P_F$ with
+\[
+ \dim_{k}H^{*}(P_{F})=2\operatorname{rank}_{Q}(F^{0}),
+\]
+so the Brown--Walker conjecture becomes
+$\dim_{k}H^{*}(P_F)\geq2^{e+1}$. Recovering the rank of one MCM cokernel
+requires finer information than this total dimension.
+
+Dyckerhoff's local, two-periodic model does not retain the internal grading
+needed for Ulrich bundles. I will instead use the $\mathbb G_m$-equivariant,
+or $\mathbb Z$-graded, matrix-factorization category of $f$. For a smooth
+projective hypersurface, Ballard--Deliu--Favero--Isik--Katzarkov construct a
+graded local generator and transfer its endomorphism dg algebra to an
+explicit, internally graded minimal $A_{\infty}$-algebra whose degree-$d$
+higher product records $f$ \cite{BDFIK}. In this fixed-hypersurface setting,
+perfect internally graded modules over this algebra model graded
+factorizations and supply the appropriate setting for the Ulrich bound.
+
+\textbf{Comparison, research questions, and method.}
+The two models are linked by forgetting the internal grading of a graded
+factorization and completing at the cone vertex. I will transport this functor
+through the two Morita descriptions. If $\mathcal E$ is an Ulrich bundle of
+rank $r$, its minimal graded factorization has size $rd$, so its underlying
+local perfect module satisfies
+\[
+ \dim_k H^*(P_{\mathcal E}^{\mathrm{loc}})=2rd.
+\]
+Thus the Ulrich lower-bound conjecture becomes
+$\dim_k H^*(P_{\mathcal E}^{\mathrm{loc}})\geq d2^e$ within the class
+admitting a linear graded lift, whereas Brown--Walker requires
+$\dim_k H^*(P_F)\geq2^{e+1}$ for every nontrivial minimal local
+factorization. Total dimension detects matrix size, but recovering $r$
+requires the degree and linear graded presentation; recovering the rank of one
+MCM cokernel requires still finer, parity-sensitive information.
+
+The categorical equivalences do not automatically preserve these numerical
+features: stabilization suppresses free summands, while completion forgets
+internal degrees. I will therefore ask: (i) what data on a minimal perfect
+$A_{\infty}$-module distinguish the ranks of its two MCM cokernels; (ii) what
+bigraded generation or vanishing condition characterizes the linear
+presentation of an Ulrich bundle; and (iii) whether the higher module
+operations obstruct objects below the conjectured bounds. Since the
+degree-$d$ multiplication records $f$, the $A_{\infty}$-module identities turn
+the last question into a concrete obstruction problem.
+
+For each test case, I will start with an explicit minimal factorization, apply
+the relevant generator functor, and compute its transferred module structure.
+I will compare parity, total cohomology, internal Hilbert series, and minimal
+generator degrees with the original matrix size, MCM rank, and Betti
+numbers, and verify their behaviour under quasi-isomorphism and grading shifts.
+Quadrics provide a consistency check through Clifford algebras and
+spinor bundles; one or two low-dimensional smooth cubic or quartic examples
+with known factorizations will supply the main computations. The deliverables
+will be a precise dictionary for the three rank questions, a proposed graded
+criterion for recognizing Ulrich objects, and worked examples identifying
+which rank and linearity information survives each categorical passage.
+\end{tcolorbox}
+
+\clearpage
 
 \bibliography{bib.bib}
 \bibliographystyle{plain}
