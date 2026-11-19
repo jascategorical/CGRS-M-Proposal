@@ -1,12 +1,21 @@
 \documentclass[12pt, a4paper]{article}
 \usepackage{graphicx} % Required for inserting images
-\usepackage{fontspec}
-\setmainfont{Times New Roman}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage{newtxtext}
+\else
+  \usepackage{fontspec}
+  \IfFontExistsTF{Times New Roman}
+    {\setmainfont{Times New Roman}}
+    {\setmainfont{TeX Gyre Termes}}
+\fi
 \usepackage{setspace}
 \singlespacing
 \usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage{amsthm}
+\usepackage{tcolorbox}
 
 \title{Ranks of Cohen-Macaulay Modules}
 \author{Jaspreet Singh Sidhu}
@@ -27,34 +36,6 @@ with the category of $A_\infty$-modules over the endomorphism ring of this gener
 thesis.
 \newpage
 
-\begin{tcolorbox}[
-  colback=yellow!12,
-  colframe=yellow!50!black,
-  boxrule=0.6pt,
-  arc=1mm,
-  left=2mm,
-  right=2mm,
-  top=1.5mm,
-  bottom=1.5mm,
-  boxsep=0pt,
-  before skip=0pt,
-  after skip=0pt
-]
-
-Given a polynomial ring $R=k[x_{0},x_{1},x_{2},\dots,x_{n}]$ and a homogeneous polynomial $f\in R$, with an isolated singularity at the origin. 
-The category of maximal Cohen modules over $R/(f)$ measure the complexity of the singularity. The minimal rank of non-trivial MCM in this category is the subject 
-of a long standing conjectures, Buchweitz-Greuel-Schreyer's (BGS) conjecture, in \cite{BGS}. More recently, Brown and Walker have stated a variation that can 
-be phrased at the level of derived categories. \textbf{provide a few more details of these conjectures here}
-
-The goal of this work is study these conjectures and rephrase them in terms of $A_\infty$-categories. The latter question is highly tractible. 
-The results of \cite{Dyckerhoff} provide a canonical generator $k^{\rm stab}$ for the stable ${\mathbb Z}/2$-graded category of MCMs. Derived Morita theory then furnishes an equivalence 
-with the category of $A_\infty$-modules over the endomorphism ring of this generator. Hence the aforementioned conjectures have $A_\infty$ restatements that I will write down in my 
-thesis.
-
-
-\textbf{Note: }I would not stated that you are going to prove BGS without providing a concrete way to actually tackle the conjecture. An expert will know that you won't be able to complete this.
-
-\end{tcolorbox}
 
 \clearpage
 
